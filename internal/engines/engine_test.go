@@ -8,6 +8,7 @@ import (
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
+	"github.com/onsi/gomega/format"
 
 	"github.com/Permify/permify/internal/storage"
 	"github.com/Permify/permify/pkg/dsl/compiler"
@@ -17,6 +18,7 @@ import (
 // This is the entry point for the test suite for the "engine" package.
 // It registers a failure handler and runs the specifications (specs) for this package.
 func TestEngines(t *testing.T) {
+	format.MaxLength = 10000
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "engine-suite")
 }

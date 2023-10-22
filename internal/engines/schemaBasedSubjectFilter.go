@@ -207,7 +207,7 @@ func (engine *SchemaBasedSubjectFilter) subjectFilterDirect(
 		filter := &base.TupleFilter{
 			Entity: &base.EntityFilter{
 				Type: request.GetEntity().GetType(),
-				Ids:  []string{request.GetEntity().GetId()},
+				Ids:  []string{request.GetEntity().GetId(), WILDCARD_TOKEN},
 			},
 			Relation: request.GetPermission(),
 		}
@@ -381,7 +381,7 @@ func (engine *SchemaBasedSubjectFilter) subjectFilterTupleToUserSet(
 		filter := &base.TupleFilter{
 			Entity: &base.EntityFilter{
 				Type: request.GetEntity().GetType(),
-				Ids:  []string{request.GetEntity().GetId()},
+				Ids:  []string{request.GetEntity().GetId(), WILDCARD_TOKEN},
 			},
 			Relation: ttu.GetTupleSet().GetRelation(),
 		}

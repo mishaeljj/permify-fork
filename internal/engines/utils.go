@@ -16,6 +16,7 @@ import (
 
 const (
 	_defaultConcurrencyLimit = 100
+	WILDCARD_TOKEN           = "*"
 )
 
 // CheckOption - a functional option type for configuring the CheckEngine.

@@ -526,6 +526,7 @@ var _ = Describe("check-engine", func() {
 					"organization:2#admin@user:3",
 					"organization:2#admin@user:8",
 					"organization:3#member@user:1",
+					"repository:*#owner@user:3",
 				},
 				checks: []check{
 					{
@@ -533,6 +534,27 @@ var _ = Describe("check-engine", func() {
 						subject: "user:1",
 						assertions: map[string]base.CheckResult{
 							"push": base.CheckResult_CHECK_RESULT_ALLOWED,
+						},
+					},
+					{
+						entity:  "repository:5",
+						subject: "user:3",
+						assertions: map[string]base.CheckResult{
+							"push": base.CheckResult_CHECK_RESULT_ALLOWED,
+						},
+					},
+					{
+						entity:  "repository:25",
+						subject: "user:3",
+						assertions: map[string]base.CheckResult{
+							"push": base.CheckResult_CHECK_RESULT_ALLOWED,
+						},
+					},
+					{
+						entity:  "repository:25",
+						subject: "user:2",
+						assertions: map[string]base.CheckResult{
+							"push": base.CheckResult_CHECK_RESULT_DENIED,
 						},
 					},
 				},

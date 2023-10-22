@@ -229,7 +229,7 @@ func (engine *ExpandEngine) expandDirectRelation(request *base.PermissionExpandR
 		filter := &base.TupleFilter{
 			Entity: &base.EntityFilter{
 				Type: request.GetEntity().GetType(),
-				Ids:  []string{request.GetEntity().GetId()},
+				Ids:  []string{request.GetEntity().GetId(), WILDCARD_TOKEN},
 			},
 			Relation: request.GetPermission(),
 		}

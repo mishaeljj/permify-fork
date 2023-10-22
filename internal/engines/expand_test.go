@@ -1067,6 +1067,8 @@ var _ = Describe("expand-engine", func() {
 					"organization:1#member@facebookuser:3",
 					"organization:1#member@facebookuser:4",
 					"organization:1#member@facebookuser:5",
+					"organization:*#member@facebookuser:6",
+					"company:*#member@googleuser:7",
 				},
 				expands: []expand{
 					{
@@ -1097,6 +1099,10 @@ var _ = Describe("expand-engine", func() {
 																		Type: "googleuser",
 																		Id:   "2",
 																	},
+																	{
+																		Type: "googleuser",
+																		Id:   "7",
+																	},
 																},
 															},
 														},
@@ -1125,6 +1131,10 @@ var _ = Describe("expand-engine", func() {
 																	{
 																		Type: "facebookuser",
 																		Id:   "5",
+																	},
+																	{
+																		Type: "facebookuser",
+																		Id:   "6",
 																	},
 																},
 															},

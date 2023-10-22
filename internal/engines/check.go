@@ -259,7 +259,7 @@ func (engine *CheckEngine) checkDirectRelation(request *base.PermissionCheckRequ
 		filter := &base.TupleFilter{
 			Entity: &base.EntityFilter{
 				Type: request.GetEntity().GetType(),
-				Ids:  []string{request.GetEntity().GetId()},
+				Ids:  []string{request.GetEntity().GetId(), WILDCARD_TOKEN},
 			},
 			Relation: request.GetPermission(),
 		}
@@ -341,8 +341,8 @@ func (engine *CheckEngine) checkTupleToUserSet(
 		// We want tuples that match the entity type and ID from the request, and have a specific relation.
 		filter := &base.TupleFilter{
 			Entity: &base.EntityFilter{
-				Type: request.GetEntity().GetType(),         // Filter by entity type from request
-				Ids:  []string{request.GetEntity().GetId()}, // Filter by entity ID from request
+				Type: request.GetEntity().GetType(),                         // Filter by entity type from request
+				Ids:  []string{request.GetEntity().GetId(), WILDCARD_TOKEN}, // Filter by entity ID from request
 			},
 			Relation: ttu.GetTupleSet().GetRelation(), // Filter by relation from tuple set
 		}

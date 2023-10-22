@@ -1,7 +1,10 @@
 version: "3.9"
 services:
   permify:
-    image: "ghcr.io/permify/permify:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #image: "ghcr.io/permify/permify:latest"
     command: "serve --database-engine postgres --database-uri postgres://postgres:secret@database:5432/permify --database-max-open-connections 20"
     restart: "always"
     ports:
