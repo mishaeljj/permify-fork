@@ -21,6 +21,8 @@ Permify Schema needed to be send to API endpoint **/v1/schemas/write"** for conf
 
 **POST** /v1/tenants/{tenant_id}/schemas/write
 
+[![View in Swagger](http://jessemillar.github.io/view-in-swagger-button/button.svg)](https://permify.github.io/permify-swagger/#/Schema/schemas.write)
+
 | Required | Argument | Type | Default | Description |
 |----------|-------------------|--------|---------|-------------|
 | [x]   | tenant_id | string | - | identifier of the tenant, if you are not using multi-tenancy (have only one tenant) use pre-inserted tenant `t1` for this field.
@@ -79,7 +81,7 @@ It's expected that your initial schema will eventually change as your product or
 
 As an example when a new feature arise and related permissions created you need to change the schema (rewrite it with adding new permission) then configure it using this Write Schema API. Afterwards, you can use the preferred version of the schema in your API requests with **schema_version**. If you do not prefer to use **schema_version** params in API calls Permify automatically gets the latest schema on API calls.
 
-A potential caveat of changing or creating schemas too often is the creation of many idle relation tuples. In Permify, created relation tuples are not removed from the stored database (your writeDB) unless you delete them with the [delete API](../data/delete-data.md). For this case, we have a [garbage collector](https://github.com/Permify/permify/pull/381) which you can use to clear expired or idle relation tuples.
+A potential caveat of changing or creating schemas too often is the creation of many idle relation tuples. In Permify, created relation tuples are not removed from the stored database unless you delete them with the [delete API](../data/delete-data.md). For this case, we have a [garbage collector](https://github.com/Permify/permify/pull/381) which you can use to clear expired or idle relation tuples.
 
 We recommend applying the following pattern to safely handle schema changes:
 

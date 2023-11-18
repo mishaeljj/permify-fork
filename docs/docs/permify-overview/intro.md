@@ -4,49 +4,35 @@ sidebar_position: 1
 
 # What is Permify?
 
-[Permify](https://github.com/Permify/permify) is an **open source authorization service** for creating and maintaining fine-grained authorizations while ensuring least privilege across your organization.
+[Permify](https://github.com/Permify/permify) is an **open source authorization service** for creating fine-grained and scalable authorization systems.
 
 With Permify, you can easily structure your authorization model, store authorization data in your preferred database, and interact with the Permify API to handle all authorization queries from your applications or services.
 
-Permify is inspired by Google’s consistent, global authorization system, [Google Zanzibar](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/41f08f03da59f5518802898f68730e247e23c331.pdf). 
+Permify is inspired by Google’s consistent, global authorization system, [Google Zanzibar](https://www.permify.co/post/google-zanzibar-in-a-nutshell/).
 
-## A true ReBAC solution to ensure least privilege
+### Motivation
 
-Permify was designed and structured as a true ReBAC solution, so besides roles and traditional permissions Permify also supports indirect permission granting through relationships. 
-
-For instance, you can define that a user has certain permissions because of their relation to other entities. An example of this would be granting a manager the same permissions as their subordinates, or giving a user access to a resource because they belong to a certain group. This is facilitated by our relationship-based access control, which allows the definition of complex permission structures based on the relationships between users, roles, and resources.
-
-Our goal is to create a robust, flexible, and easily auditable authorization system that establishes a natural linkage between permissions across the business units, functions, and entities of an organization.
+Our goal is to make **Google's Zanzibar** available to everyone and help them to build robust, flexible, and easily auditable authorization system that establishes a [natural linkage between permissions](https://www.permify.co/post/power-of-relational-based-access-control/) across the business units, functions, and entities of an organization.
 
 ## Key Features
 
-🛡️ **Production ready** authorization API that serve as **gRPC** and **REST**
+🛡️ **Production ready** authorization API that serve as **gRPC** and **REST**.
 
-🔮 Domain Specific Authorization Language - Permify Schema - to **easily model** your authorization
+🔮 Domain Specific Authorization Language to **easily model** your authorization. SUpporting RBAC, ReBAC, ABAC and more.
 
-🔐 Database Configuration to store your permissions **in house** with **high availability**
+🔐 Database Configuration to store your permissions with **high availability** and **low latency**.
 
-✅ Perform access control checks and get answers **down to 10ms** with **parallel graph engine**
+✅ Perform access control checks and get answers **down to 10ms** with our various cache mechanisms that we operate.
 
-💪 Battle tested, robust **authorization architecture and data model** based on [Google Zanzibar](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/41f08f03da59f5518802898f68730e247e23c331.pdf)
+💪 Battle tested, robust **authorization architecture and data model** based on [Google Zanzibar](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/41f08f03da59f5518802898f68730e247e23c331.pdf).
 
-⚙️ Create custom permissions for your **tenants**, and manage them in a single place with **Multi Tenancy**
+⚙️ Create custom permissions for your **tenants**, and manage them in a single place with **Multi Tenancy**.
 
-⚡ Analyze **performance and behavior** of your authorization with tracing tools [jaeger], [signoz] or [zipkin]
+⚡ Analyze **performance and behavior** of your authorization with tracing tools [jaeger], [signoz] or [zipkin].f
 
 [jaeger]: https://www.jaegertracing.io/
 [signoz]: https://signoz.io/
 [zipkin]: https://zipkin.io/
-
-## Features Beyond Zanzibar
-
-We’re trying to make [Zanzibar](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/41f08f03da59f5518802898f68730e247e23c331.pdf) available to everyone to use and benefit from in their applications and services. We utilize Zanzibar features and add new features on top of it to achieve robust permission systems. Here are some additional features that we have, 
-
-- **Multi-Tenancy Support** - This enables users to create a custom authorization model for different applications, all managed within a single Permify instance.
-
-- **Testing Framework - Permify Validate** - This enhances the testability of authorization logic. It includes features like scenario-based validation actions, policy coverage analysis, and IDL parser Integration to achieve end-to-end validation for the desired authorization schema.
-
-- **Data Filtering** - In Zanzibar typical a access check has the form of **"Does user U have relation R to object O?”** and yields true or false response. Additional to that, we have data filtering endpoints that let you ask questions in the form of **“Which resources can user:X do action Y?”** or **“Which user(s) can edit doc:Y”**. As a response to this, you’ll get a entity results in the format of a string array or as a streaming response depending on the endpoint you're using.
 
 ## Getting Started
 
@@ -56,9 +42,9 @@ In Permify, authorization is divided into 3 core aspects; **modeling**, **storin
 - Learn how Permify will [Store Authorization Data] as relations.
 - Perform [Access Checks] anywhere in your stack.
 
-[Model your Authorization]: ../getting-started/modeling
-[Store Authorization Data]: ../getting-started/sync-data
-[Access Checks]: ../getting-started/enforcement
+[Model your Authorization]: ../../getting-started/modeling
+[Store Authorization Data]: ../../getting-started/sync-data
+[Access Checks]: ../../getting-started/enforcement
 
 This document explains how Permify handles these aspects to provide a robust and scalable authorization system for your applications. For the ones that want to try it out and examine it instantly, 
 
@@ -71,7 +57,7 @@ This document explains how Permify handles these aspects to provide a robust and
            <div className="thumb-txt">Use our Playground to test your authorization in a browser. </div>
         </div>
     </a>
-    <a href="https://docs.permify.co/docs/installation/overview">
+    <a href="./installation/overview">
         <div className="btn-thumb">
             <div className="thumbnail">
                  <img src="https://user-images.githubusercontent.com/34595361/199695094-872d50fc-c33b-4d15-ad1d-a3899911a16a.png"/>

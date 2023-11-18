@@ -9,6 +9,8 @@ Read API allows for directly querying the stored graph data to display and filte
 
 **Path:** POST /v1/tenants/{tenant_id/data/relationships/read
 
+[![View in Swagger](http://jessemillar.github.io/view-in-swagger-button/button.svg)](https://permify.github.io/permify-swagger/#/Data/data.relationships.read)
+
 | Required | Argument | Type | Default | Description |
 |----------|----------|---------|---------|-------------------------------------------------------------------------------------------|
 | [x]   | tenant_id | string | - | identifier of the tenant, if you are not using multi-tenancy (have only one tenant) use pre-inserted tenant `t1` for this field.
@@ -21,7 +23,7 @@ Read API allows for directly querying the stored graph data to display and filte
 <TabItem value="go" label="Go">
 
 ```go
-rr, err: = client.Data.Relationship.Read(context.Background(), & v1.Data.RelationshipReadRequest {
+rr, err: = client.Data.ReadRelationships(context.Background(), & v1.Data.RelationshipReadRequest {
     TenantId: "t1",
     Metadata: &v1.Data.RelationshipReadRequestMetadata {
         SnapToken: ""
@@ -45,7 +47,7 @@ rr, err: = client.Data.Relationship.Read(context.Background(), & v1.Data.Relatio
 <TabItem value="node" label="Node">
 
 ```javascript
-client.data.relationship.read({
+client.data.readRelationships({
   tenantId: "t1",
   metadata: {
      snap_token: "",

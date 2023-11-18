@@ -73,20 +73,18 @@ These credits are your sole remedy for any availability failures under our SLA.
 
 Permify designed to answer these authorization questions efficiently and with minimal complexity while providing low latency with:
 - Using its parallel graph engine. 
-- Storing the relationships between resources beforehand in Permify data store: [writeDB], rather than providing these relationships at “check” time.
+- Storing the relationships between resources beforehand in preferred data store, rather than providing these relationships at “check” time.
 - Implementing permission caching to not recompute repeated permission checks, and in memory cache to store authorization schema.
 - Using [Snap Tokens](../reference/snap-tokens) to achieve consistency and high performance in cache.
 
 Permify implements several cache mechanisms in order to achieve low latency in scaled distributed systems. See more on the section [Cache Mechanisms](../reference/cache.md) 
 
-[writeDB]: ../getting-started/sync-data.md
-
 ## Request Rate Limits
 
 Default rate limit is set to 100 requests per second. However, users can adjust this based on their specific needs following our documentation. 
 
-- doc: https://docs.permify.co/docs/reference/configuration
-- algorithm: https://en.wikipedia.org/wiki/Token_bucket
+- [Configuration reference](../../reference/configuration)
+- [Algorithm](https://en.wikipedia.org/wiki/Token_bucket)
 
 ## Need any help ?
 

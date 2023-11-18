@@ -15,6 +15,16 @@ function YamlEditor(props) {
         monaco.editor.defineTheme('dark-theme', Theme())
     }
 
+    function handleEditorChange(value, event) {
+        try {
+            if (value !== props.code) {
+                props.setCode(value);
+            }
+        } catch (error) {
+            console.error("Error while editing YAML: ", error);
+        }
+    }
+
     const options = {
         selectOnLineNumbers: true,
         renderIndentGuides: true,
@@ -25,23 +35,19 @@ function YamlEditor(props) {
         acceptSuggestionOnEnter: "on",
         folding: true,
         lineNumbersMinChars: 3,
-        fontSize: 13,
+        fontSize: 12,
     };
-
-    function handleEditorChange(value, event) {
-        props.setCode(value);
-    }
 
     return (
         <MonacoEditor
-            height="50vh"
+            height="100vh"
             language="yaml"
             theme="dark-theme"
             value={props.code}
             options={options}
-            onChange={handleEditorChange}
             beforeMount={handleEditorWillMount}
             onMount={handleEditorDidMount}
+            onChange={handleEditorChange}
         />
     );
 }
